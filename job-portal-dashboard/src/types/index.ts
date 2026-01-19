@@ -1,6 +1,6 @@
-// src/types/index.ts
+// src/types.ts
 
-export default interface Job {
+export interface Job {
   id: string;
   title: string;
   company: string;
@@ -10,10 +10,10 @@ export default interface Job {
   postedDate: string;
   description: string;
   image: string;
-  companyLogo: string;
+  companyLogo: string; // ✅ REQUIRED (was missing)
 }
 
-export default interface ApplicationForm {
+export interface ApplicationForm {
   name: string;
   email: string;
   phone: string;
@@ -25,7 +25,7 @@ export default interface ApplicationForm {
   question4: string;
 }
 
-export default interface ApiResponse {
+export interface ApiResponse {
   jobs: Job[];
   total: number;
   page: number;

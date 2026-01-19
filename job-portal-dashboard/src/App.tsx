@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Search, Briefcase, ChevronLeft, ChevronRight } from 'lucide-react';
 
-import type { Job, ApplicationForm } from './types';
+import type { Job, ApplicationForm } from '../types';
 
 import { fetchJobs } from './api/jobService';
 import useDebounce from './hooks/useDebounce';
