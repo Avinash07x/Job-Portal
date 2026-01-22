@@ -1,23 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-interface Options extends IntersectionObserverInit {}
-
-export default function useIntersectionObserver(options?: Options) {
-  const ref = useRef<HTMLDivElement | null>(null);
+export const useIntersectionObserver = (options: IntersectionObserverInit) => {
   const [entries, setEntries] = useState<IntersectionObserverEntry[]>([]);
+  const [node, setNode] = useState<Element | null>(null);
+
+  const observer = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    if (!ref.current) return;
+    if (observer.current) observer.current.disconnect();
 
-    const observer = new IntersectionObserver(
-      ([entry]) => setEntries([entry]),
-      options
-    );
+    observer.current = new IntersectionObserver((entries) => {
+      setEntries(entries);
+    }, options);
 
-    observer.observe(ref.current);
+    const { current: currentObserver } = observer;
+    if (node) currentObserver.observe(node);
 
-    return () => observer.disconnect();
-  }, [options]);
+    return () => currentObserver.disconnect();
+  }, [node, options]);
 
-  return [ref, entries] as const;
-}
+  return [setNode, entries] as const;
+};

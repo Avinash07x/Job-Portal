@@ -7,7 +7,7 @@ interface SuccessModalProps {
   jobTitle: string;
 }
 
-export const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose, name, jobTitle }) => {
+const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose, name, jobTitle }) => {
   if (!isOpen) return null;
 
   return (

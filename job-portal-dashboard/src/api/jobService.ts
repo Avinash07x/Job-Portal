@@ -1,27 +1,25 @@
-import type { ApiResponse, Job } from '../types';
+import type { Job, ApiResponse } from '../types';
 import { mockJobs } from '../data/jobs';
 
-const PAGE_SIZE = 10;
-
-export const fetchJobs = async (
-  search: string,
-  page: number
-): Promise<ApiResponse> => {
-  await new Promise<void>(resolve => setTimeout(resolve, 500));
-
-  const filtered: Job[] = search
+const fetchJobs = async (search: string, page: number): Promise<ApiResponse> => {
+  // Simulate network delay
+  await new Promise(resolve => setTimeout(resolve, 500));
+  
+  const filtered = search
     ? mockJobs.filter(job =>
         job.title.toLowerCase().includes(search.toLowerCase()) ||
         job.company.toLowerCase().includes(search.toLowerCase())
       )
     : mockJobs;
-
-  const start = (page - 1) * PAGE_SIZE;
-  const end = start + PAGE_SIZE;
-
+  
+  const start = (page - 1) * 10;
+  const end = start + 10;
+  
   return {
     jobs: filtered.slice(start, end),
     total: filtered.length,
-    page,
+    page
   };
 };
+
+export { fetchJobs };

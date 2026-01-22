@@ -1,13 +1,12 @@
 import React from 'react';
 import type { Job } from '../types';
 
-
 interface JobTableProps {
   jobs: Job[];
   onViewDetails: (job: Job) => void;
 }
 
-export const JobTable: React.FC<JobTableProps> = ({ jobs, onViewDetails }) => {
+const JobTable: React.FC<JobTableProps> = ({ jobs, onViewDetails }) => {
   return (
     <div className="overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200">
       <table className="min-w-full divide-y divide-gray-200">

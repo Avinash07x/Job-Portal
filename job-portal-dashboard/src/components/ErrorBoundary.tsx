@@ -1,7 +1,7 @@
 import React from 'react';
 import { AlertCircle } from 'lucide-react';
 
-class ErrorBoundary extends React.Component<
+export default class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { hasError: boolean; error: Error | null }
 > {
@@ -40,5 +40,3 @@ class ErrorBoundary extends React.Component<
     return this.props.children;
   }
 }
-
-export default ErrorBoundary;
