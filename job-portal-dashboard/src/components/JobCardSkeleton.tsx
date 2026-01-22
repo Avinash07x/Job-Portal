@@ -1,5 +1,3 @@
-import React from 'react';
-
 const JobCardSkeleton = () => (
   <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 animate-pulse">
     <div className="h-6 bg-gray-200 rounded w-3/4 mb-3"></div>

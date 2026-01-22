@@ -1,5 +1,4 @@
-import React from 'react';
-import { Users, Briefcase, AlertCircle, CheckCircle, XCircle } from 'lucide-react';
+import { Users, Briefcase, AlertCircle } from 'lucide-react';
 
 const AdminDashboard = () => {
   return (

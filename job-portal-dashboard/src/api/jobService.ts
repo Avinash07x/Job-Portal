@@ -1,4 +1,4 @@
-import type { Job, ApiResponse } from '../types';
+import type { ApiResponse } from '../types';
 import { mockJobs } from '../data/jobs';
 
 const fetchJobs = async (search: string, page: number): Promise<ApiResponse> => {
